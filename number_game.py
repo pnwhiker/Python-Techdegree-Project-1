@@ -45,7 +45,7 @@ def replay_option():
 
 def main_program():
     correct_answer = randint(1,10)
-    print(correct_answer)
+    # print(correct_answer)
     
     score = int()
     score = 0
