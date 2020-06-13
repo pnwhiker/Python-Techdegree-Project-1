@@ -1,6 +1,6 @@
 """
 Python Web Development Techdegree, Treehouse
-Project 1 - Number Guessing Game, Ryan A. Whitney, June - 2020
+Project 1 - Number Guessing Game, Ryan A. Whitney, June 12th, 2104 PST - 2020
 --------------------------------
 """
 
@@ -82,6 +82,8 @@ def main_program():
 main_program()
 
 replay_option()
+ 
+
 
 
 
