@@ -30,14 +30,11 @@ def get_user_guess():
     return guess
    
     
-def replay_option(score): 
-    high_score = int(score)
+def replay_option(): 
     choice = (input("Would you like to play again? Enter [y]es or [n]o: ")).lower()
 
     while choice == 'y':
         print("\nWe're sure glad to have you back!\n")
-        print("The current high score to beat is {} guesses!\n".format(high_score))
-        print('We know you can do it!')
         main_program()
               
         
@@ -48,35 +45,44 @@ def replay_option(score):
 
 def main_program():
     correct_answer = randint(1,10)
-    # print(correct_answer)
+    print(correct_answer)
     
-    score = 1
+    score = int()
+    score = 0
     print('\n\nWelcome to the Number Guessing Game!\n')
     user_name = username_intake()
     print('\nWelcome on board, {}! We\'re glad to have you here!\n'.format(user_name))
     
     user_guess = get_user_guess()
         
-    if user_guess != correct_answer:
+    while user_guess != correct_answer:
         if user_guess < correct_answer:
             score += 1
             print('\nYou\'re coming in a little low, try higher!\n')
-            get_user_guess()
+            user_guess = get_user_guess()
         elif user_guess > correct_answer:
             score += 1
             print('\nYou\'re coming in a little high, try lower!\n')
-            get_user_guess()
-    if user_guess == correct_answer:
-            if score == 0:
-                score = 1
-                print("The Eagle Has Landed!  You've guessed it!\n")
-                print("It took you {} attempts to guess the correct number!\n".format(score))
-                return score
-            elif score != 0:
-                print("The Eagle Has Landed!  You've guessed it!\n")
-                print("It took you {} attempts to guess the correct number!\n".format(score))
-                return score
-          
-high_score = main_program()
+            user_guess = get_user_guess()
 
-replay_option(high_score)
+
+    while user_guess == correct_answer:
+        if score == 0:
+            score = 1
+            print("The Eagle Has Landed!  You've guessed it!\n")
+            print("It took you {} attempts to guess the correct number!\n".format(score))
+            print("The current high score is {} attempts!\n".format(score))
+            return score
+        elif score > 0:
+            print("The Eagle Has Landed!  You've guessed it!\n")
+            print("It took you {} attempts to guess the correct number!\n".format(score))
+            print("The current high score is {} attempts!\n".format(score))
+            return score
+          
+main_program()
+
+replay_option()
+
+
+
+
