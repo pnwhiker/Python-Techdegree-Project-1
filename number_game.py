@@ -36,6 +36,7 @@ def replay_option():
     while choice == 'y':
         print("\nWe're sure glad to have you back!\n")
         main_program()
+        break
               
         
     if choice == 'n':
